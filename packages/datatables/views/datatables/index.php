@@ -4,7 +4,7 @@
     <thead>
         <tr>
         <?php
-            foreach ($columns as $column) {
+            foreach ((array)$columns as $column) {
                 $headerOptions = "";
                 if( isset($column['headerOptions']) ){
                     foreach( $column['headerOptions'] as $option => $value ) $headerOptions .= $option.'="'.$value.'" ';
@@ -12,7 +12,7 @@
 				echo '<th '.$headerOptions.'>'. $column['header'] .'</th>';
             }
             
-            if(count($hasActions))
+            if(count((array)$hasActions))
                 echo '<th class="header_actions"></th>';
         ?>
         </tr>
@@ -45,7 +45,7 @@
 				++$i;
 			}
             
-            if(count($hasActions))
+            if(count((array)$hasActions))
                 echo '<td align="center">&nbsp;</td>';
         ?>
         </tr>
