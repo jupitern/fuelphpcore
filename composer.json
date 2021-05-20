@@ -1,7 +1,6 @@
 {
-    "name": "fuel/fuel",
-    "type": "project",
-    "description" : "FuelPHP is a simple, flexible, community driven PHP 5.3.3+ framework, based on the best ideas of other frameworks, with a fresh start!",
+    "name": "jupitern/fuelphpcore",
+    "description" : "FuelPHP core",
     "keywords": ["application", "website", "development", "framework", "PHP", "PHP7"],
     "license": "MIT",
     "require": {
@@ -18,30 +17,7 @@
         "phpseclib/phpseclib": "2.0.0",
         "michelf/php-markdown": "1.4.0"
     },
-    "require-dev": {
-        "fuel/docs": "1.8.*"
-    },
     "suggest": {
-        "dwoo/dwoo" : "Allow Dwoo templating with the Parser package",
-        "mustache/mustache": "Allow Mustache templating with the Parser package",
-        "smarty/smarty": "Allow Smarty templating with the Parser package",
-        "twig/twig": "Allow Twig templating with the Parser package",
-        "pyrocms/lex": "Allow Lex templating with the Parser package",
-        "mthaml/mthaml": "Allow Haml templating with Twig supports with the Parser package"
-    },
-    "config": {
-        "vendor-dir": "vendor"
-    },
-    "extra": {
-        "installer-paths": {
-            "fuel/{$name}": ["core"],
-            "{$name}": ["docs"]
-        }
-    },
-    "scripts": {
-        "post-install-cmd": [
-            "php oil r install"
-        ]
     },
     "minimum-stability": "stable"
 }
