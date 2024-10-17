@@ -2311,7 +2311,7 @@ class Model implements \ArrayAccess, \Iterator, \Sanitization
 	 * Implementation of ArrayAccess
 	 **************************************************************************/
 
-	public function offsetSet($offset, $value)
+	public function offsetSet($offset, $value): void
 	{
 		try
 		{
@@ -2319,21 +2319,21 @@ class Model implements \ArrayAccess, \Iterator, \Sanitization
 		}
 		catch (\Exception $e)
 		{
-			return false;
+			return;
 		}
 	}
 
-	public function offsetExists($offset)
+	public function offsetExists($offset): bool
 	{
 		return $this->__isset($offset);
 	}
 
-	public function offsetUnset($offset)
+	public function offsetUnset($offset): void
 	{
 		$this->__unset($offset);
 	}
 
-	public function offsetGet($offset)
+	public function offsetGet($offset): mixed
 	{
 		try
 		{
@@ -2351,28 +2351,28 @@ class Model implements \ArrayAccess, \Iterator, \Sanitization
 
 	protected $_iterable = array();
 
-	public function rewind()
+	public function rewind(): void
 	{
 		$this->_iterable = array_merge($this->_custom_data, $this->_data, $this->_data_relations);
 		reset($this->_iterable);
 	}
 
-	public function current()
+	public function current(): mixed
 	{
 		return current($this->_iterable);
 	}
 
-	public function key()
+	public function key(): mixed
 	{
 		return key($this->_iterable);
 	}
 
-	public function next()
+	public function next(): void
 	{
-		return next($this->_iterable);
+		next($this->_iterable);
 	}
 
-	public function valid()
+	public function valid(): bool
 	{
 		return key($this->_iterable) !== null;
 	}
@@ -2381,7 +2381,7 @@ class Model implements \ArrayAccess, \Iterator, \Sanitization
 	 * Returns a list of properties that will be excluded when to_array() is used.
 	 * @return array
 	 */
-	public static function get_to_array_exclude()
+	public static function get_to_array_exclude(): array
 	{
 		return static::$_to_array_exclude;
 	}

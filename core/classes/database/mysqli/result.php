@@ -33,22 +33,16 @@ class Database_MySQLi_Result extends \Database_Result
 		}
 	}
 
-	public function seek($offset)
+	public function seek($offset): void
 	{
 		if ($this->offsetExists($offset) and $this->_result->data_seek($offset))
 		{
 			// Set the current row to the offset
 			$this->_current_row = $this->_internal_row = $offset;
-
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+        }
 	}
 
-	public function current()
+	public function current(): mixed
 	{
 		if ($this->_current_row !== $this->_internal_row and ! $this->seek($this->_current_row))
 		{
